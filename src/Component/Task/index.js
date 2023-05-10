@@ -1,27 +1,28 @@
 import { connect } from 'react-redux'
-import { generateDog } from '../../Redux/State/Dog'
+import { listTasks } from '../../Redux/State/Task'
 import { componentDidMount } from 'react-functional-lifecycle'
 import { compose } from 'ramda'
-import Dog from './Dog'
+import Task from './Task'
 
 // mapStateToProps :: State -> Props
 const mapStateToProps = state => ({
-  ...state.Dog,
+  tasks: state.Task.tasks,
+  isFetching: state.Task.isFetching,
 })
 
 // mapDispatchToProps :: (Action * -> State) -> Props
 const mapDispatchToProps = dispatch => ({
-  generateRandomDog: compose(dispatch, generateDog),
+  listTasks: compose(dispatch, listTasks),
 })
 
 // didMount :: Props -> *
-const didMount = ({ generateRandomDog }) => generateRandomDog()
+const didMount = ({ listTasks }) => listTasks()
 
 // container :: ReactComponent -> ReactComponent
 const container = connect(mapStateToProps, mapDispatchToProps);
 
 // component :: ReactComponent
-const component = componentDidMount(didMount)(Dog);
+const component = componentDidMount(didMount)(Task);
 
-// Dog :: ReactComponent
+// Task :: ReactComponent
 export default container(component);

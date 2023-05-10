@@ -1,9 +1,9 @@
 import * as Module from './index'
 
 describe('Redux :: Module', () => {
-  it('contains the Dog state', () => {
+  it('contains the Task state', () => {
     const state = Module.default();
 
-    expect(state.Dog).toBeDefined();
+    expect(state.Task).toBeDefined();
   });
 })

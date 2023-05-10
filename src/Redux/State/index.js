@@ -1,4 +1,4 @@
-import Dog from './Dog'
+import Task from './Task'
 import { tap, pipe } from 'ramda'
 import { combineReducers } from 'redux'
 
@@ -20,5 +20,5 @@ export const debug = reducer => (state = reducer(), action = {}) => pipe(
 
 // State :: (State, Action *) -> State
 export default combineReducers({
-  Dog,
+  Task,
 })

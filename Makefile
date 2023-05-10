@@ -7,7 +7,7 @@ install-deps:
 
 .PHONY:
 start:
-	docker-compose up
+	docker-compose up -d
 
 .PHONY:
 test:
